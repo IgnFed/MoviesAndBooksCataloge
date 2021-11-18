@@ -1,0 +1,41 @@
+.body{
+  position: relative;
+  max-width: 100vw;
+  max-height: 100vh;
+  display:grid;
+  grid-template-rows: 470px auto 170px;
+}
+.heroSection{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.explainSection{
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+}
+
+.footer{
+  height: 100%;
+  width: 100%;
+  background-color: green;
+}
+
+/*HERO SECTION STYLES*/
+
+.imgContainer{
+  position: absolute;
+  width: inherit;
+  background-color: aqua;
+  height: 100%;
+  object-fit: contain;
+}
+.dark{
+  position: absolute;
+  background-color: #08080850;
+  width: 100%;
+  height: 100%;
+}
+
+/*-----------------------------------------*/
