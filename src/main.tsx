@@ -1,11 +1,13 @@
-import * as ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import './styles/global.css'
-import App from './App'
+import '@styles/Global.css';
+import App from './App';
 
-ReactDOM.render(
+
+render(
   <BrowserRouter>
     <App/>
-  </BrowserRouter>,
+  </BrowserRouter>
+  ,
   document.getElementById('root')
 )

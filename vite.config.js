@@ -14,7 +14,7 @@ export default defineConfig({
       {find: '@interfaces', replacement:path.resolve(__dirname, './src/utils/interfaces')},
       {find: '@types', replacement:path.resolve(__dirname, './src/utils/types')},
       {find: '@functions', replacement:path.resolve(__dirname, './src/utils/functions')},
-      {find: '@public', replacement:path.resolve(__dirname, './src/public')},
+      {find: '@images', replacement:path.resolve(__dirname, './src/images')},
     ]
   },
 

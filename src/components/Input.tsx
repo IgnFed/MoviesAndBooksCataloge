@@ -1,47 +1,34 @@
 import { dynamicClassListForCss } from "@utils/functions";
-import { TProps,TStyles } from "@utils/types";
-import { ChangeEvent, FocusEvent } from "react";
+import { TProps, TStyles } from "@utils/types";
+import { ChangeEvent } from "react";
 
-type TInput = {
-  inputType?: string,
-  inputName?: string,
-  inputValue?: string,
-  inputPlaceholder?:string,
-  autoComplete?: "on"|"off",
-  onChange?: ((e:ChangeEvent<HTMLInputElement>)=>void),
-  onFocus?: ((e:FocusEvent<HTMLInputElement>)=>void),
+type TInputEvent ={
+  handleChange?:((e:ChangeEvent<HTMLInputElement>)=>void)
+}
+type TInputProps ={
+  state?: string,
+  placeholder?:string,
 }
 
-export default function Input<P extends TProps & TStyles & TInput>({
+export default function Input<T extends TProps & TStyles & TInputEvent & TInputProps>({
   children,
   CSSReference={},
+  globalClassName='',
   classNameList=[],
   id="",
   stylesObject={},
-  onChange=(e:ChangeEvent<HTMLInputElement>)=>{},
-  onFocus=(e:FocusEvent<HTMLInputElement>)=>{},
-  inputName,
-  inputType = "text",
-  inputValue,
-  inputPlaceholder,
-  autoComplete="off",
-  globalClassName="",
-}:P){
+  handleChange = (e:ChangeEvent<HTMLInputElement>)=>{},
+  state='',
+  placeholder=''
+}:T){
   return(
-      <>
-        {children}
-        <input
-              autoComplete={autoComplete}
-              className={dynamicClassListForCss(CSSReference, classNameList) + " " + globalClassName}
-              id={CSSReference?.[id]}
-              type={inputType} 
-              name={inputName} 
-              style={stylesObject} 
-              onChange={(e)=>onChange(e)}
-              onFocus={(e)=>onFocus(e)}
-              value={inputValue}
-              placeholder={inputPlaceholder || ""}
-              />
-      </>
+      <input
+        className={`${dynamicClassListForCss(CSSReference, classNameList)}`}
+        id={CSSReference[id]}
+        style={stylesObject}
+        onChange={handleChange}
+        value={state}
+        placeholder={placeholder}
+        />
   );
 }
