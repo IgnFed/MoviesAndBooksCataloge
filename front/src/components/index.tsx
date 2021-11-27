@@ -1,8 +1,5 @@
-import Book from './Book';
-import Movie from './Movie';
-import NavBar from './navBar/NavBar';
-import LinkItem from './LinkItem';
 import Button from './Button';
 import Input from './Input';
+import ItemLink from './ItemLink';
 
-export {Book, Movie, NavBar, LinkItem, Button, Input};
+export {Button, Input, ItemLink};

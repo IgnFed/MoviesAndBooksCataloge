@@ -1,45 +1,103 @@
 *, *::after, *::before, html,body
 {
-  padding: 0;margin: 0;
-  font-size: 1.24rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-sizing: border-box;
+padding: 0;margin: 0;
+font-size: 1.14rem;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+box-sizing: border-box;
 }
 
 html,body{
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+position: absolute;
+width: 100vw;
+height: 100vh;
+background-color: #3c3d3d;
+color: #FFF;
 }
 
 a, a:visited{
-  text-decoration: none;
-  display: inline-block;
+text-decoration: none;
+color: inherit;
+display: inline-block;
+line-height: 60px;
 }
+
 li{
-  list-style: none;
+list-style: none;
+background-color: transparent;
+transition: background-color .13s;
+}
+
+.itemLink:hover{
+  background-color: #8383bfdd;
+}
+a.itemLink{
+  display: flex;
+  align-items: center;
 }
 
 .componentContainer{
-  width: 100%;
+width: 100%;
 }
+
 img{
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
+width: inherit;
+height: inherit;
+object-fit: contain;
 }
 
 
 .bg-dark{
-  background-color: #3c3c3c;
+background-color: #3c3c3c;
 }
 .bg-light{
-  background-color: #FFFFFFFF;
+background-color: #FFFFFFFF;
 }
 .dark *{
-  color: #000!important;
+color: #000;
 }
 
 .light *{
-  color: #FFF;
+color: #FFF;
 }
+
+
+div#appGrid{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 5.625rem 1fr;
+  grid-template-areas:"Dashboard Searcher"
+                      "Dashboard Gallery";
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+nav#dashboard{grid-area: Dashboard;}
+nav#searcher{grid-area: Searcher;}
+nav#gallery{grid-area: Gallery;}
+
+nav#dashboard, header#searcher, 
+main#gallery{
+  padding: 0.625rem;
+}
+nav#dashboard{
+  background-color: #333;
+  position: relative;
+  padding-right: 0;
+  padding-left: 0;
+  width: 16.75rem;
+  transition: width .15s;
+}
+
+nav#dashboard.toggle{
+  width: 50px;
+  overflow: hidden;
+}
+
+#icon{
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+

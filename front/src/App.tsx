@@ -1,18 +1,38 @@
 import { lazy, Suspense } from "react";
 import { 
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
-import { Book, Button, NavBar } from "./components";
 
-const Catalogo = lazy(()=>import('@pages/Catalogo'))
+/**Components */
+const Dashboard = lazy(()=> import('@components/dashboard/Dashboard'));
+const Searcher = lazy(()=> import('@components/searcher/Searcher'));
+
+/**Pages */
+const Books = lazy(()=> import('@pages/Books'));
+const Movies = lazy(()=> import('@pages/Movies'));
+const Layout = lazy(()=> import('@pages/Layout'));
+
+
 export default function App(){
   return(
-    <Routes>
-        <Route path="/" element={<Suspense fallback={<div>Loading...</div>}><NavBar/></Suspense>}>
-        <Route path="books" element={<Button/>}></Route>  
-        <Route path="movies" element={<Button children={"hola"}/>}></Route>  
-        </Route>   
-    </Routes>  
-   )
+    <div id="appGrid">  
+      <Suspense fallback={<div>Cargando...</div>}>
+        <nav id="dashboard">
+          <Dashboard/>
+        </nav>
+        <header id="searcher">
+          <Searcher/>
+        </header>
+        <main id="gallery">
+          <Routes>
+            <Route path="/" element={<Layout/>}>
+              <Route path="books" element={<Books/>}/>
+              <Route path="movies" element={<Movies/>}/>
+            </Route>
+          </Routes>
+        </main>
+      </Suspense>
+    </div>
+  )
 }
