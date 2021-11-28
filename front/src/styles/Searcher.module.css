@@ -1,6 +1,6 @@
 .input{
   position: relative;
-  width: 50%;
+  min-width: 60%;
   height: 100%;
   left: 50%; 
   transform: translateX(-50%); 

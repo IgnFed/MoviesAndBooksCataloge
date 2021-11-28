@@ -29,6 +29,7 @@ export default function Dashboard():JSX.Element{
             CSSReference={style}
             icon={ToggleLogo}
             alt={'Toggle'}
+            globalClassName={"itemLink"}
             classNameList={['toggleButton']}
             onClick={handleToggleDashboard}
           >
@@ -46,6 +47,7 @@ export default function Dashboard():JSX.Element{
                     CSSReference={style}
                     icon={obj.icon.default}
                     alt={obj.to}
+                    globalClassName={"itemLink"}
                     classNameList={['dashLink']}
                     to={obj.to}
                     hasIcon={true}

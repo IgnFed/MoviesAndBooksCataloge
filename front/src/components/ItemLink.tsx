@@ -27,7 +27,7 @@ export default function ItemLink<P extends TProps & TListItemLink>({
       onClick={onClick} 
       to={to}
       id={CSSReference?.[id] || id}
-      className={`${dynamicClassListForCss(CSSReference, classNameList)} ${globalClassName} itemLink`}
+      className={`${dynamicClassListForCss(CSSReference, classNameList)} ${globalClassName}`}
     >
       {
         icon
