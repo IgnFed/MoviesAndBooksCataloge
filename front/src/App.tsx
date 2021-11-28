@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import ParamsProvider from '@utils/context/ParamsContext';
 import { 
   Routes,
   Route,
@@ -16,23 +17,22 @@ const Layout = lazy(()=> import('@pages/Layout'));
 
 export default function App(){
   return(
-    <div id="appGrid">  
-      <Suspense fallback={<div>Cargando...</div>}>
-        <nav id="dashboard">
-          <Dashboard/>
-        </nav>
-        <header id="searcher">
-          <Searcher/>
-        </header>
-        <main id="gallery">
-          <Routes>
-            <Route path="/" element={<Layout/>}>
-              <Route path="books" element={<Books/>}/>
-              <Route path="movies" element={<Movies/>}/>
-            </Route>
-          </Routes>
-        </main>
-      </Suspense>
-    </div>
+      <div id="appGrid">  
+        <ParamsProvider>
+          <Suspense fallback={<div>Cargando...</div>}>
+            <Dashboard/>
+            <Searcher/>
+            <main id="gallery">
+              <Routes>
+                <Route path="/" element={<Layout/>}>
+                  <Route path="books" element={<Books/>}/>
+                  <Route path="movies" element={<Movies/>}/>
+                </Route>
+              </Routes>
+            </main>
+          </Suspense>
+        </ParamsProvider>
+      </div>
+
   )
 }

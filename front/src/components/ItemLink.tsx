@@ -7,7 +7,7 @@ type TListItemLink = {
   to?:string,
   icon?:string,
   alt?:string,
-  onClick?:((e?:MouseEvent<HTMLAnchorElement>)=>void)
+  onClick?:((e:MouseEvent<HTMLAnchorElement>)=>void),
 }
 
 export default function ItemLink<P extends TProps & TListItemLink>({
@@ -27,7 +27,7 @@ export default function ItemLink<P extends TProps & TListItemLink>({
       onClick={onClick} 
       to={to}
       id={CSSReference?.[id] || id}
-      className={`${dynamicClassListForCss(CSSReference, classNameList)} itemLink`}
+      className={`${dynamicClassListForCss(CSSReference, classNameList)} ${globalClassName} itemLink`}
     >
       {
         icon

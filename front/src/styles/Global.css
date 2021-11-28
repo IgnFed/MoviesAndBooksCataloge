@@ -79,7 +79,7 @@ nav#gallery{grid-area: Gallery;}
 
 nav#dashboard, header#searcher, 
 main#gallery{
-  padding: 0.625rem;
+  padding: 1.097rem;
 }
 nav#dashboard{
   background-color: #333;
