@@ -24,7 +24,7 @@ export default function Dashboard():JSX.Element{
   return(
     <nav id="dashboard" ref={dashBoardRef}>
       <div className={`${style.container}`} >
-        <div className={`${style.topContent}`}>
+        <div className={`${style.topContent || ''}`}>
           <ItemLink 
             CSSReference={style}
             icon={ToggleLogo}
@@ -37,8 +37,8 @@ export default function Dashboard():JSX.Element{
           </ItemLink>
         </div>
         <hr />
-        <div className={`${style.bottomContent}`}>
-          <ul className={`${style.routeList}`}>
+        <div className={`${style.bottomContent || ''}`}>
+          <ul className={`${style.routeList || ''}`}>
             {
               END_POINTS.map((obj, idx)=>(
                 <li key={`${idx}__${obj.to}`}>

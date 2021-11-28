@@ -24,7 +24,8 @@ export default function App(){
             <Searcher/>
             <main id="gallery">
               <Routes>
-                <Route path="/" element={<Layout/>}>
+                <Route path="/" >
+                  <Route index element={<Layout/>} />
                   <Route path="books" element={<Books/>}/>
                   <Route path="movies" element={<Movies/>}/>
                 </Route>
