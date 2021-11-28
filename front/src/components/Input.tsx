@@ -30,5 +30,6 @@ export default function Input<T extends TProps & TStyles & TInputEvent & TInputP
         value={state}
         placeholder={placeholder}
         />
+        
   );
 }

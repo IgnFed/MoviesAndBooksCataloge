@@ -13,6 +13,25 @@ height: 100vh;
 background-color: #3c3d3d;
 color: #FFF;
 }
+button{
+  outline: none;
+}
+
+input, button{
+  padding: .375rem;
+  border-radius: 6px;
+}
+input{
+  border: none;
+  transition: outline .12s;
+}
+input::placeholder{
+  text-align: center;
+  pointer-events: none;
+}
+input:focus{
+  outline:4px solid #355dff;
+}
 
 a, a:visited{
 text-decoration: none;
@@ -64,7 +83,7 @@ color: #FFF;
 div#appGrid{
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: minmax(60px, 16.75rem) 1fr;
   grid-template-rows: 5.625rem 1fr;
   grid-template-areas:"Dashboard Searcher"
                       "Dashboard Gallery";
@@ -86,7 +105,8 @@ nav#dashboard{
   position: relative;
   padding-right: 0;
   padding-left: 0;
-  width: 16.75rem;
+  width: 100%;
+  overflow-x:hidden;
   transition: width .15s;
 }
 

@@ -23,7 +23,6 @@ export default function ParamsProvider({children}:any):any{
 
   function updateLocation(newLocation:string){
     setParams( _ => newLocation)
-    console.log(newLocation)
   }
   return(
     <paramsCtx.Provider 

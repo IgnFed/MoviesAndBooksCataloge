@@ -18,7 +18,7 @@ export default function Dashboard():JSX.Element{
 
   const handleToggleDashboard =  (e:MouseEvent<HTMLAnchorElement>):void => {
     e.preventDefault();
-    const m: HTMLElement = dashBoardRef.current;
+    const m :HTMLElement = dashBoardRef.current;
     m.classList.contains('toggle') ? m.classList.remove('toggle') : m.classList.add('toggle') ;
   }
   return(
