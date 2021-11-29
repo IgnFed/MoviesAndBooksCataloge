@@ -82,7 +82,6 @@ color: #FFF;
 
 
 div#appGrid{
-  position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 5.625rem 1fr;
@@ -90,6 +89,7 @@ div#appGrid{
                       "Dashboard Gallery";
   width: 100vw;
   height: 100vh;
+  overflow: auto;
 }
 
 nav#dashboard{grid-area: Dashboard;}
@@ -103,6 +103,16 @@ main#gallery{
 header#searhcer{
   overflow: hidden;
 }
+
+::-webkit-scrollbar{
+  height: .5rem;
+  background-color: rgb(46, 42, 42);
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 12px;
+  background-color: #85857962;
+}
+
 
 nav#dashboard{
   background-color: #333;
