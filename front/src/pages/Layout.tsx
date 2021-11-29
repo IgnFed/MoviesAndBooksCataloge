@@ -20,7 +20,7 @@ export default function Layout(){
       <div className={`${style.gridItem}`}>
       {
         END_POINTS.map((point, idx)=>(
-          <div className={`${style.flexItem}`}>
+          <div key={`${idx}__${point.to}`} className={`${style.flexItem}`}>
             <ItemLink
               key={`${idx}__${point.to}`}
               onClick={handleUpdateLocation}

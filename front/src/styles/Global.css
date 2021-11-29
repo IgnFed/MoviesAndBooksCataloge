@@ -38,7 +38,6 @@ a, a:visited{
 text-decoration: none;
 color: inherit;
 display: inline-block;
-line-height: 60px;
 }
 
 li{
@@ -56,11 +55,11 @@ a.itemLink{
 }
 
 .componentContainer{
-width: 100%;
+  width: 100%;
 }
 
 img{
-width: inherit;
+  width: inherit;
 height: inherit;
 object-fit: contain;
 }
@@ -73,14 +72,23 @@ background-color: #3c3c3c;
 background-color: #FFFFFFFF;
 }
 .dark *{
-color: #000;
+  color: #000;
 }
 
 .light *{
-color: #FFF;
+  color: #FFF;
 }
 
 
+::-webkit-scrollbar{
+  height: .5rem;
+  background-color: rgb(46, 42, 42);
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 12px;
+  background-color: #85857962;
+
+}
 div#appGrid{
   display: grid;
   grid-template-columns: auto 1fr;
@@ -89,7 +97,7 @@ div#appGrid{
                       "Dashboard Gallery";
   width: 100vw;
   height: 100vh;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 nav#dashboard{grid-area: Dashboard;}
@@ -104,16 +112,6 @@ header#searhcer{
   overflow: hidden;
 }
 
-::-webkit-scrollbar{
-  height: .5rem;
-  background-color: rgb(46, 42, 42);
-}
-::-webkit-scrollbar-thumb{
-  border-radius: 12px;
-  background-color: #85857962;
-}
-
-
 nav#dashboard{
   background-color: #333;
   position: relative;
@@ -126,6 +124,10 @@ nav#dashboard{
 
 nav#dashboard.toggle{
   width: 50px;
+}
+
+#gallery{
+  overflow-y: auto;
 }
 
 #icon{

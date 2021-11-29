@@ -1,0 +1,44 @@
+#cardsContainer.flex{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .75rem;
+}
+
+#card{
+  max-width: calc(100%/3 - .75rem);
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+#card .imgContainer{
+  transition: blur 1s;
+  width: 100%;
+  height: 100%;
+}
+
+
+#card:hover .imgContainer{
+  filter: blur(2.75px);
+}
+#card .titleContainer{
+  position: absolute;
+  bottom: 0;
+  left: 120%;
+  padding: .25rem;
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+  text-align: center;
+  transition: left .13s ease-in;
+  user-select: none;
+}
+
+#card:hover .titleContainer{
+  left: 0;
+  user-select: initial;
+}

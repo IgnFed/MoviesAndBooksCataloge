@@ -1,4 +1,4 @@
-export interface IMovie{
+export default interface IMovie{
   id?:string |  Object,
   title:string,
   authors:Array<string>,
