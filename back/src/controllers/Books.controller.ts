@@ -7,12 +7,12 @@ async function getBooks(req:Request, res:Response):Promise<Response>{
   try{
     const booksArr:Array<IBook> = []; 
     await Book.find()
-      .then(docs =>  docs.forEach( ({_id, author, title, alternativeTitles, description, pages, tags}) => (
-        booksArr.push({id:_id, author, title, alternativeTitles, description, pages, tags}) ))
+      .then(docs =>  docs.forEach( ({_id, authors, title, alternativeTitles, description, pages, tags}) => (
+        booksArr.push({id:_id, authors, title, alternativeTitles, description, pages, tags}) ))
       );
     return res.json({
       request:{
-        type:'POST',
+        type:'GET',
         msg:'Books founded.',
         msgStatus:'success',
       },
@@ -25,7 +25,7 @@ async function getBooks(req:Request, res:Response):Promise<Response>{
     console.error(e);
     return res.json({
       request:{
-        type:'POST',
+        type:'GET',
         msg:'Something has wrong. Books not found.',
         msgStatus:'error',
       },
@@ -38,7 +38,7 @@ async function getBookById(req:Request, res:Response){
     const bookObject:IBook | {} = {};
     const {id} = req.params;
     await Book.findById(id)
-      .then(({author, title, alternativeTitles, description, pages, tags}:any)=>(Object.assign(bookObject, {id, author, title, alternativeTitles, description, pages, tags })))
+      .then(({authors, title, alternativeTitles, description, pages, tags}:any)=>(Object.assign(bookObject, {id, authors, title, alternativeTitles, description, pages, tags })))
   
     res.json({
       request:{
@@ -66,8 +66,8 @@ async function getBookById(req:Request, res:Response){
 
 async function postBook(req:Request, res:Response):Promise<Response>{
   try{
-    const {author, title, alternativeTitles, description, pages, tags } = req.body;
-    const book = new Book({author, title, alternativeTitles, description, pages, tags})
+    const {authors, title, alternativeTitles, description, pages, tags } = req.body;
+    const book = new Book({authors, title, alternativeTitles, description, pages, tags})
     await book.save();
     return res.json({
       request:{
@@ -77,7 +77,7 @@ async function postBook(req:Request, res:Response):Promise<Response>{
       },
       data:{
         id:book._id,
-        author,
+        authors,
         title,
         alternativeTitles,
         description,
