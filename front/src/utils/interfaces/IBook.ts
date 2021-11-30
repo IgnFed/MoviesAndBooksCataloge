@@ -1,6 +1,6 @@
 export default interface IBook{
   id?: string | Object,
-  author?:Array<string>,
+  authors?:Array<string>,
   title?:string,
   alternativeTitles?:Array<string>,
   description?: string,

@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ApiDataContextProvider from "./utils/context/ApiDataContext";
 
 /**Components */
 const Dashboard = lazy(()=> import('@components/dashboard/Dashboard'));
@@ -17,21 +18,23 @@ const Layout = lazy(()=> import('@pages/Layout'));
 export default function App(){
   return(
       <div id="appGrid">  
-        <ParamsProvider>
-          <Suspense fallback={<div>Cargando...</div>}>
+        <Suspense fallback={<div>Cargando...</div>}>
+          <ParamsProvider>
             <Dashboard/>
-            <Searcher/>
-            <main id="gallery">
-              <Routes>
-                <Route path="/" >
-                  <Route index element={<Layout/>} />
-                  <Route path="books" element={<Cards/>}/>
-                  <Route path="movies" element={<Cards/>}/>
-                </Route>
-              </Routes>
-            </main>
-          </Suspense>
-        </ParamsProvider>
+            <ApiDataContextProvider>
+              <Searcher/>
+              <main id="gallery">
+                <Routes>
+                  <Route path="/" >
+                    <Route index element={<Layout/>} />
+                    <Route path="books" element={<Cards/>}/>
+                    <Route path="movies" element={<Cards/>}/>
+                  </Route>
+                </Routes>
+              </main>
+            </ApiDataContextProvider>
+          </ParamsProvider>
+        </Suspense>
       </div>
 
   )

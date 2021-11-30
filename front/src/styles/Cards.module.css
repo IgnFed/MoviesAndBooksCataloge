@@ -4,13 +4,13 @@
   display: flex;
   flex-wrap:wrap;
   justify-content: center;
-  align-items: center;
   gap: .75rem;
 }
 
 #card{
   max-width: calc(100%/3 - .75rem);
   min-width: 200px;
+  height: fit-content;
   position: relative;
   overflow: hidden;
 }
