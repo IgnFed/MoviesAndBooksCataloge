@@ -1,9 +1,10 @@
 import { dynamicClassListForCss } from "@utils/functions";
 import { TProps, TStyles } from "@utils/types";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FocusEvent } from "react";
 
 type TInputEvent ={
-  handleChange?:((e:ChangeEvent<HTMLInputElement>)=>void)
+  handleChange?:((e:ChangeEvent<HTMLInputElement>)=>void),
+  handleFocus?:((e:FocusEvent<HTMLInputElement>)=>void),
 }
 type TInputProps ={
   state?: string,
@@ -18,6 +19,7 @@ export default function Input<T extends TProps & TStyles & TInputEvent & TInputP
   id="",
   stylesObject={},
   handleChange = (e:ChangeEvent<HTMLInputElement>)=>{},
+  handleFocus = (e:FocusEvent<HTMLInputElement>)=>{},
   state='',
   placeholder=''
 }:T){
@@ -26,6 +28,7 @@ export default function Input<T extends TProps & TStyles & TInputEvent & TInputP
         className={`${dynamicClassListForCss(CSSReference, classNameList)}`}
         id={CSSReference[id]}
         style={stylesObject}
+        onFocus = {handleFocus}
         onChange={handleChange}
         value={state}
         placeholder={placeholder}

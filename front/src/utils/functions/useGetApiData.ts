@@ -40,25 +40,24 @@ export default function useApi<T extends TUseApiProps>({url="", returnType}:T): 
         .then(res => {setResponse(prev => ( {...prev, ...res  } ) )});
     }, [url, returnType]);
 
-  const filterData = (q?:string):Array<IBook | IMovie> =>{
-    if(!response || !q?.trim()) return [];
+  // const filterData = (q?:string):Array<IBook | IMovie> =>{
+  //   if(!response || !q?.trim()) return [];
 
-    return response.data.filter(({id, title="", authors=[], alternativeTitles=[], description="", tags=[]}:IBook | IMovie, idx:number)=>(        
+  //   return response.data.filter(({id, title="", authors=[], alternativeTitles=[], description="", tags=[]}:IBook | IMovie, idx:number)=>(        
 
-      authors?.map(author=> author.toLowerCase() ).indexOf(q.toLowerCase()) > -1 ||
-      title?.toLocaleLowerCase().indexOf(q.toLowerCase()) > -1 ||
-      alternativeTitles?.map(altTitle=> altTitle.toLowerCase() ).indexOf(q.toLowerCase()) > -1 ||
-      description?.indexOf(q.toLowerCase()) > -1 ||
-      tags?.map(tag=> tag.toLowerCase() ).indexOf(q.toLowerCase()) > -1
-    ))
+  //     authors?.map(author=> author.toLowerCase() ).indexOf(q.toLowerCase()) > -1 ||
+  //     title?.toLocaleLowerCase().indexOf(q.toLowerCase()) > -1 ||
+  //     alternativeTitles?.map(altTitle=> altTitle.toLowerCase() ).indexOf(q.toLowerCase()) > -1 ||
+  //     description?.indexOf(q.toLowerCase()) > -1 ||
+  //     tags?.map(tag=> tag.toLowerCase() ).indexOf(q.toLowerCase()) > -1
+  //   ))
 
-  }
+  // }
 
   return [
     response as IResponseData,
     {
       setState:setResponse,
-      filterData,
     } as IFnData,
   ];
 }

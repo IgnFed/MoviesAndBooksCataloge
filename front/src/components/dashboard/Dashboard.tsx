@@ -3,15 +3,17 @@ import style from '@styles/Dashboard.module.css';
 import {END_POINTS} from '@utils/others/Links';
 import {ItemLink} from '@components/index';
 import { useParamsCtx } from '@utils/context/ParamsContext';
-const {default:ToggleLogo} = await import('@images/ToggleLogo.svg')
-
+import { useInputValueCtx } from '@utils/context/InputValueContext';
+import ToggleLogo from '@images/ToggleLogo.svg';
 
 export default function Dashboard():JSX.Element{
 
   const dashBoardRef = useRef<HTMLElement>({} as HTMLElement);
   const currentParams = useParamsCtx();
+  const InputValueCtx = useInputValueCtx()
 
-  function handleUpdateParamsCtx(e:MouseEvent<HTMLAnchorElement>):void{  
+  function handleUpdateParamsCtx(e:MouseEvent<HTMLAnchorElement>):void{
+    InputValueCtx.setInputValue('')
     const location = e.currentTarget.getAttribute('href') || '';
     currentParams.updateLocation(location);
   }
@@ -45,7 +47,7 @@ export default function Dashboard():JSX.Element{
                   <ItemLink 
                     onClick={handleUpdateParamsCtx}
                     CSSReference={style}
-                    icon={obj.icon.default}
+                    icon={obj.icon}
                     alt={obj.to}
                     globalClassName={"itemLink"}
                     classNameList={['dashLink']}

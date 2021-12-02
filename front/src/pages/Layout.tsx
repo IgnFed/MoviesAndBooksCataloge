@@ -27,7 +27,7 @@ export default function Layout(){
               to={`${point.to}`}
               CSSReference={style}
               classNameList={['link']}
-              icon={point.icon.default}
+              icon={point.icon}
             >
               {point.to.toUpperCase()}
             </ItemLink>
